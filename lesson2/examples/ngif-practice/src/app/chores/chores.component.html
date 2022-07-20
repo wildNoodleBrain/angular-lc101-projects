@@ -1,7 +1,7 @@
 <div class="chores">
     <h3>Chores</h3>
     <ul>
-       <li *ngFor = 'let chore of chores'>{{chore}}</li>
+       <li *ngFor = 'let chore of chores'>{{chore}} </li>
     </ul>
  </div>
  <hr>
@@ -9,6 +9,22 @@
     <h3>Done Chores</h3>
     <ul>
        <li *ngFor = 'let done of finishedChores'>{{done}}</li>
+       <p>Work harder!</p>
     </ul>
  </div>
  <hr>
+
+ <ng-template #finsihedChores>
+    <div class='chores' *ngIf = "chores.length > 3; else finsihedChores">
+       <h3>Chores are not Done!</h3>
+       <p>You have {{chores.length}} chores on your list!</p>
+       <p>No allowance yet</p>
+    </div>
+ </ng-template>
+ <ng-template #finsihedChores>
+    <div class='chores' *ngIf = "chores.length > 4; else finsihedChores">
+       <h1>Ice cream treat!</h1>
+       <p>You have {{doneChores.length}} no more chores on your list!</p>
+       <p>No allowance yet</p>
+    </div>
+ </ng-template>
